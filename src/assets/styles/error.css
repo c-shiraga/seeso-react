@@ -1,0 +1,61 @@
+body{
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    background-color: #e2eff7;
+}
+.sign-in-error{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+.error-message-area{
+    margin-top: 150px;
+}
+
+h2{
+    font-size: 3rem;
+}
+p{
+    font-size: 1.5rem;
+    margin-top: 30px;
+}
+a{
+    text-decoration: none;
+    background-color: #65C7F7;
+    color: white;
+    border-radius: 5px;
+    width: 200px;
+    padding: 15px 45px;
+    
+}
+a:hover{
+    background-color: #008DBD;
+    transition: .3s;
+}
+.return-top{
+    text-align: center;
+    margin-top: 20px;
+}
+/*************************スマホのデザイン *************************/
+@media(max-width:700px){
+    .error-message-area{
+        margin-top: 30px;
+    }
+    .sign-in-error{
+        display: block;
+        margin: 0 10px;
+    }
+    .error-img{
+        width: 90%;
+        height: 90%;
+    }
+    .error-img-area{
+        text-align: center;
+    }
+    p{
+        font-size: 1.2rem;
+        margin-top: 30px;
+    }
+    .return-top{
+        margin-bottom: 30px;
+    }
+}
