@@ -6,6 +6,7 @@ import '../assets/styles/contact.css';
 const Contact = () => {
     return (
         <div>
+            <h2>Contact</h2>
             <section class="main-section">
                 <Iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdi96ezQRPinHSnc4wsMs5M-NEhmLs6-syzZHxeVpV7nTTxzQ/viewform?embedded=true" className="google-form" />
             </section>
@@ -23,5 +24,4 @@ const Contact = () => {
         </div>
     )
 }
-
 export default Contact

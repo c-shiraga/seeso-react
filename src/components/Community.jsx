@@ -5,6 +5,7 @@ import '../assets/styles/community.css';
 const Community = () => {
     return (
         <div>
+            <h2>Community</h2>
             <section className="main-section">
                     <div id="messages-area">
                         <div id="chatlog"></div>
@@ -21,9 +22,6 @@ const Community = () => {
                     <div><a href="./contact.html"><img src="../img/mail_icon.png" alt="" /></a></div>
                 </div>
             </div>
-            <footer>
-                <div className="copy">&copy;2021 seeso</div>
-            </footer>
         </div>
     )
 }

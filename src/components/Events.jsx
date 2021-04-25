@@ -7,6 +7,7 @@ import '../assets/styles/events.css';
 const Events = () => {
     return (
         <div>
+            <h2>Events</h2>
             <section className="create" className="main-section">
                 <details>
                     <summary className="event">イベントを作成する</summary>
@@ -66,10 +67,6 @@ const Events = () => {
                     <div><a href="./contact.html"><img src="../img/mail_icon.png" alt="" /></a></div>
                 </div>
             </div>
-            <footer>
-                <div className="copy">&copy;2021 seeso</div>
-            </footer>
-            
         </div>
     )
 }

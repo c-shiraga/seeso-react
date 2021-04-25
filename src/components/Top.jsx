@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import firebase from '../firebase/firebase';
 import topChar from '../assets/img/seesoChar2.png';
 import logo from '../assets/img/seeso_logo.png';
@@ -10,25 +11,27 @@ import googleBtn from '../assets/img/btn_google.png';
 
 const Top = () => {
 
+    const history = useHistory();
+
     const login = () => {
         const provider = new firebase.auth.GoogleAuthProvider();
         
-    
         firebase.auth().signInWithPopup(provider)
             .then((result) => {
             
             if (result.user.email.match(/@oic-ok/)) {
+                history.push('/Main');
               alert(result.user.displayName + 'さんがログインしました。');
-              
+
               
             } else {
               alert('OICアカウントでサインインしてください')
                 // location.href = '../html/error.html';
             }
           })
-          // .catch(function(error) {
-          //   alert(error);
-          // });
+          .catch(function(error) {
+            alert('正常にサインインできませんでした。');
+          });
       } 
 
     return (
