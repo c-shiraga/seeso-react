@@ -7,7 +7,7 @@ import '../assets/styles/events.css';
 const Events = () => {
     return (
         <div>
-            <h2>Events</h2>
+            <h2 className="content-title">Events</h2>
             <section className="create" className="main-section">
                 <details>
                     <summary className="event">イベントを作成する</summary>

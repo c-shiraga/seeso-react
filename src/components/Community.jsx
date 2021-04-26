@@ -5,7 +5,7 @@ import '../assets/styles/community.css';
 const Community = () => {
     return (
         <div>
-            <h2>Community</h2>
+            <h2 className="content-title">Community</h2>
             <section className="main-section">
                     <div id="messages-area">
                         <div id="chatlog"></div>

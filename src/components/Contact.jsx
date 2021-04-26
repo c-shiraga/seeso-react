@@ -3,10 +3,11 @@ import Iframe from 'react-iframe'
 import '../assets/styles/index.css';
 import '../assets/styles/contact.css';
 
+
 const Contact = () => {
     return (
         <div>
-            <h2>Contact</h2>
+            <h2 className="content-title">Contact</h2>
             <section class="main-section">
                 <Iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdi96ezQRPinHSnc4wsMs5M-NEhmLs6-syzZHxeVpV7nTTxzQ/viewform?embedded=true" className="google-form" />
             </section>
@@ -18,9 +19,6 @@ const Contact = () => {
                     <div><a href="./contact.html"><img src="../img/mail_icon.png" alt="" /></a></div>
                 </div>
             </div>
-            <footer>
-                <div class="copy">&copy;2021 seeso</div>
-            </footer>
         </div>
     )
 }

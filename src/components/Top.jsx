@@ -41,7 +41,7 @@ const Top = () => {
                 <div className="main-title">
                     <img src={logo} alt="" className="title-logo-img"/>
                     <p className="sub-title">このWebサイトは専門学校岡山情報ビジネス学院(OIC)の学生専用のSNSです。</p>
-                    <img src={googleBtn} onClick={login} />
+                    <img src={googleBtn} onClick={login} className="loginButton"/>
                 </div>
             </div>
             <div className="main2">
@@ -91,9 +91,6 @@ const Top = () => {
                     </div>
                 </div>  
             </div>
-            <footer>
-                <div className="copy">&copy;2021 seeso</div>
-            </footer>
         </div>
     )
 }

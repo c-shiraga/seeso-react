@@ -1,28 +1,24 @@
 import React from 'react';
-import { HashLink } from 'react-router-hash-link';
 import Events from './Events';
 import Community from './Community';
 import Contact from './Contact';
+import Header from './Header';
 
 const Main = () => {
     return (
         <div>
-            <div className="hd">
-                <HashLink smooth to="/Main#Events-area" >Events</HashLink>
-                <HashLink smooth to="/Main#Community-area" >Community</HashLink>
-                <HashLink smooth to="/Main#Contact-area" >Contact</HashLink>
+            <Header />
+            <div id="main-content-area">
+                <section id="Events-area">
+                    <Events/>
+                </section>
+                <section id="Community-area">
+                    <Community/>    
+                </section>
+                <section id="Contact-area">
+                    <Contact/>
+                </section>
             </div>
-            <section id="Events-area">
-                <Events/>
-            </section>
-            <section id="Community-area">
-                <Community/>    
-            </section>
-            <section id="Contact-area">
-                <Contact/>
-            </section>
-            
-            
         </div>
     )
 }

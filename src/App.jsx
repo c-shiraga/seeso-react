@@ -6,6 +6,7 @@ import Events from './components/Events';
 import Community from './components/Community';
 import Contact from './components/Contact';
 import './assets/styles/index.css';
+import Footer from './components/Footer';
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
               <Route path='/Contact' component={Contact}/>
           </div>
       </Router>
+      <Footer />
     </div>
   )
 }
