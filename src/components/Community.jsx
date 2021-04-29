@@ -1,18 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
+import firebase from '../firebase/firebase';
 import '../assets/styles/index.css';
 import '../assets/styles/community.css';
+import Chat from './Chat';
 
 const Community = () => {
+
+    const [message, setMessage] = useState("");
+
+    const sendMessage = async () => {
+        if(!message){
+            alert("メッセージを入力してください");
+            return;
+        }
+
+        const db = firebase.firestore();
+        await db.collection('chatroom').add({
+            msg: message,
+            name: 'しろくま先生',
+            photo: 'oic',
+            date: new Date().getTime()
+        });
+
+        setMessage('');
+
+    }
+
     return (
         <div>
             <h2 className="content-title">Community</h2>
             <section className="main-section">
                     <div id="messages-area">
-                        <div id="chatlog"></div>
+                        <div id="chatlog">
+                            <Chat />
+                        </div>
                     </div>
                     <div id="bms_send">
-                        <textarea id="bms_send_message"></textarea>
-                        <div id="bms_send_btn">送信</div>
+                        <textarea
+                            id="bms_send_message" 
+                            value={message}
+                            onChange={(event) => {setMessage(event.target.value)}}>
+                         </textarea>
+                        <div id="bms_send_btn" onClick={sendMessage}>送信</div>
                     </div>
             </section>
             <div className="smf-nav">
