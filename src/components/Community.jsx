@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import {UserProfile} from './Main';
 import firebase from '../firebase/firebase';
 import '../assets/styles/index.css';
 import '../assets/styles/community.css';
 import Chat from './Chat';
 
 const Community = () => {
+
+    const [currentUser , setCurrentUser] = useContext(UserProfile);
 
     const [message, setMessage] = useState("");
 
@@ -16,10 +19,10 @@ const Community = () => {
 
         const db = firebase.firestore();
         await db.collection('chatroom').add({
-            msg: message,
-            name: 'しろくま先生',
-            photo: 'oic',
-            date: new Date().getTime()
+            msg  : message,
+            name : currentUser.name,
+            photo: currentUser.photo,
+            date : new Date().getTime()
         });
 
         setMessage('');

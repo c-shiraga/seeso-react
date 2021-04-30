@@ -10,6 +10,7 @@ import topChar2 from '../assets/img/charSmile.png';
 import googleBtn from '../assets/img/btn_google.png';
 
 const Top = () => {
+    
 
     const history = useHistory();
 
@@ -18,21 +19,20 @@ const Top = () => {
         
         firebase.auth().signInWithPopup(provider)
             .then((result) => {
-            
-            if (result.user.email.match(/@oic-ok/)) {
-                history.push('/Main');
-              alert(result.user.displayName + 'さんがログインしました。');
+                if (result.user.email.match(/@oic-ok/)) {
+                    history.push('/Main');
+                    alert(result.user.displayName + 'さんがログインしました。');
 
-              
-            } else {
-              alert('OICアカウントでサインインしてください')
-                // location.href = '../html/error.html';
-            }
-          })
-          .catch(function(error) {
-            alert('正常にサインインできませんでした。');
-          });
-      } 
+                } else {
+                    // alert('OICアカウントでサインインしてください')
+                    // location.href = '../html/error.html';
+                    history.push('/ErrorPage');
+                }
+            })
+            .catch(function(error) {
+                alert('正常にサインインできませんでした。');
+            });
+    } 
 
     return (
         <div>

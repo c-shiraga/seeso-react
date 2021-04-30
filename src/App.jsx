@@ -7,6 +7,7 @@ import Community from './components/Community';
 import Contact from './components/Contact';
 import './assets/styles/index.css';
 import Footer from './components/Footer';
+import ErrorPage from './components/ErrorPage';
 
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
               <Route path='/Events' component={Events}/>
               <Route path='/Community' component={Community}/>
               <Route path='/Contact' component={Contact}/>
+              <Route path='/ErrorPage' component={ErrorPage}/>
           </div>
       </Router>
       <Footer />

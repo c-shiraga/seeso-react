@@ -7,27 +7,27 @@ const Chat = () => {
 
     useEffect(() => {
         const db = firebase.firestore();
-        db.collection("chatroom").orderBy("date", "asc").get().then((querySnapshot) => {
-            const _messages = [];
-            querySnapshot.forEach((doc) => {
-                _messages.push({
+        const unsubscribe =  db.collection("chatroom").orderBy("date", "asc").onSnapshot((querySnapshot) => {
+            const _messages = querySnapshot.docs.map((doc) => {
+                return {
                     messageId: doc.id,
                     ...doc.data()
-                });
+                }
             });
-
             setMessages(_messages);
         });
-        
+        return () => {
+            unsubscribe();
+        }  
     },[])
 
     const getStrTime = (time) => {
         let t = new Date(time);
         return(
             ("0" + (t.getMonth() + 1)).slice(-2) + "/" +
-            ("0" + t.getDate()       ).slice(-2) + " " +
-            ("0" + t.getHours()      ).slice(-2) + ":" +
-            ("0" + t.getMinutes()    ).slice(-2)
+            ("0" +  t.getDate()      ).slice(-2) + " " +
+            ("0" +  t.getHours()     ).slice(-2) + ":" +
+            ("0" +  t.getMinutes()   ).slice(-2)
         );
     }
 

@@ -1,7 +1,7 @@
-body{
+/* body{
     font-family: 'M PLUS Rounded 1c', sans-serif;
     background-color: #e2eff7;
-}
+} */
 .sign-in-error{
     display: flex;
     justify-content: space-around;
@@ -11,29 +11,33 @@ body{
     margin-top: 150px;
 }
 
-h2{
+h2.error{
     font-size: 3rem;
 }
-p{
+p.error{
     font-size: 1.5rem;
     margin-top: 30px;
 }
-a{
+button.error{
     text-decoration: none;
     background-color: #65C7F7;
     color: white;
     border-radius: 5px;
     width: 200px;
-    padding: 15px 45px;
+    padding: 12px 40px;
     
 }
-a:hover{
+button.error:hover{
     background-color: #008DBD;
-    transition: .3s;
+    transition: .6s;
 }
 .return-top{
     text-align: center;
     margin-top: 20px;
+    margin-bottom: 20px;
+}
+span.error{
+    color: red;
 }
 /*************************スマホのデザイン *************************/
 @media(max-width:700px){
@@ -51,7 +55,7 @@ a:hover{
     .error-img-area{
         text-align: center;
     }
-    p{
+    p.error{
         font-size: 1.2rem;
         margin-top: 30px;
     }
