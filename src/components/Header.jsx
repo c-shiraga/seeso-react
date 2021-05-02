@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { HashLink } from 'react-router-hash-link';
+import { Link } from 'react-scroll';
 
 
 const Header = () => {
@@ -12,8 +12,7 @@ const Header = () => {
     useEffect(() => {
         setMaxScrollPosition(document.getElementById('root').scrollHeight);
         window.addEventListener('scroll', () => {
-            setScrollPosition(window.pageYOffset);
-            
+            setScrollPosition(window.pageYOffset);  
         })
     })
        
@@ -26,21 +25,48 @@ const Header = () => {
                 <button id="sign-out">sign out</button>
                 <nav className="hd">
                     <div className="hd">
-                        <HashLink smooth to="/Main#Events-area">
-                            <span className={(maxScrollPosition - scrollPosition) > 2113 ? 'current' : 'noCurrent'}>
+                        {/* <HashLink smooth to="/Main#Events-area"> */}
+                        <Link
+                            activeClass="active"
+                            to="Events-area"
+                            spy={true}
+                            smooth={true}
+                            offset={0}
+                            duration= {400}
+                        >
+                            <span className={(maxScrollPosition - scrollPosition) > 2151 ? 'current' : 'noCurrent'}>
                                 Events
                             </span> 
-                        </HashLink>
-                        <HashLink smooth to="/Main#Community-area">
-                            <span className={(maxScrollPosition - scrollPosition) < 1959 && (maxScrollPosition - scrollPosition) > 1219 ? 'current' : 'noCurrent'}>
+                        </Link>
+                        {/* </HashLink> */}
+                        {/* <HashLink smooth to="/Main#Community-area"> */}
+                        <Link
+                            activeClass="active"
+                            to="Community-area"
+                            spy={true}
+                            smooth={true}
+                            offset={0}
+                            duration= {400}
+                        >
+                            <span className={(maxScrollPosition - scrollPosition) < 1997 && (maxScrollPosition - scrollPosition) > 1257 ? 'current' : 'noCurrent'}>
                                 Community
                             </span> 
-                        </HashLink>
-                        <HashLink smooth to="/Main#Contact-area">
-                            <span className={(maxScrollPosition - scrollPosition) < 1059 ? 'current' : 'noCurrent'}>
+                        </Link>
+                        {/* </HashLink>
+                        <HashLink smooth to="/Main#Contact-area"> */}
+                        <Link
+                            activeClass="active"
+                            to="Contact-area"
+                            spy={true}
+                            smooth={true}
+                            offset={0}
+                            duration= {400}
+                        >
+                            <span className={(maxScrollPosition - scrollPosition) < 1097 ? 'current' : 'noCurrent'}>
                                 Contact
                             </span> 
-                        </HashLink>
+                        </Link>
+                        {/* </HashLink> */}
                     </div>
                 </nav>
             </header>

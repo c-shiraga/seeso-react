@@ -28,17 +28,11 @@ const Main = () => {
         <div>
             <Header />
             <div id="main-content-area">
-                <section id="Events-area">
+                <UserProfile.Provider value={[currentUser, setCurrentUser]}>
                     <Events/>
-                </section>
-                <section id="Community-area">
-                    <UserProfile.Provider value={[currentUser, setCurrentUser]}>
-                        <Community/>
-                    </UserProfile.Provider>   
-                </section>
-                <section id="Contact-area">
-                    <Contact/>
-                </section>
+                    <Community/>
+                </UserProfile.Provider>   
+                <Contact/>
             </div>
         </div>
     )

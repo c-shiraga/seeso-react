@@ -19,16 +19,15 @@ p.error{
     margin-top: 30px;
 }
 button.error{
-    text-decoration: none;
-    background-color: #65C7F7;
+    background-color: #01579b;
     color: white;
-    border-radius: 5px;
+    border-radius: 50px;
     width: 200px;
     padding: 12px 40px;
     
 }
 button.error:hover{
-    background-color: #008DBD;
+    background-color: #039be5;
     transition: .6s;
 }
 .return-top{

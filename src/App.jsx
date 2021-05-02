@@ -18,9 +18,6 @@ const App = () => {
           <div>
               <Route exact path='/' component={Top}/>
               <Route path='/Main' component={Main}/>
-              <Route path='/Events' component={Events}/>
-              <Route path='/Community' component={Community}/>
-              <Route path='/Contact' component={Contact}/>
               <Route path='/ErrorPage' component={ErrorPage}/>
           </div>
       </Router>

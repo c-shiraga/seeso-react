@@ -7,7 +7,6 @@ import create from '../assets/img/createImg.png';
 import chat from '../assets/img/chatImg.png';
 import line from '../assets/img/lineImg.png';
 import topChar2 from '../assets/img/charSmile.png';
-import googleBtn from '../assets/img/btn_google.png';
 
 const Top = () => {
     
@@ -40,8 +39,10 @@ const Top = () => {
                 <img src={topChar} alt="" className="top-img"/>
                 <div className="main-title">
                     <img src={logo} alt="" className="title-logo-img"/>
-                    <p className="sub-title">このWebサイトは専門学校岡山情報ビジネス学院(OIC)の学生専用のSNSです。</p>
-                    <img src={googleBtn} onClick={login} className="loginButton"/>
+                    <p className="sub-title">このWebサイトは<br/>
+                    専門学校岡山情報ビジネス学院(OIC)の<br/>
+                    学生専用のSNSです。</p>
+                    <button　onClick={login} className="loginButton">SEESOにログイン</button>
                 </div>
             </div>
             <div className="main2">
@@ -87,6 +88,9 @@ const Top = () => {
                     <div className="step-center">
                         <h3 className="step-title-center">いつでも、どこでも、楽しめる</h3>
                         <p className="top-comment">操作はとても簡単。いますぐ、イベントを企画し、多くの人と交流しよう！</p>
+                        <div>
+                            <button　onClick={login} className="loginButton">SEESOにログイン</button>
+                        </div>
                         <img src={topChar2} alt="" className="bottom-img"/>
                     </div>
                 </div>  

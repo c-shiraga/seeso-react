@@ -30,7 +30,7 @@ const Community = () => {
     }
 
     return (
-        <div>
+        <div id="Community-area">
             <h2 className="content-title">Community</h2>
             <section className="main-section">
                     <div id="messages-area">
@@ -44,7 +44,11 @@ const Community = () => {
                             value={message}
                             onChange={(event) => {setMessage(event.target.value)}}>
                          </textarea>
-                        <div id="bms_send_btn" onClick={sendMessage}>送信</div>
+                        <div id="bms_send_btn" 
+                             onClick={sendMessage}
+                             className={message ? 'sendPossible' : 'sendImpossible'}>
+                                 送信
+                        </div>
                     </div>
             </section>
             <div className="smf-nav">
