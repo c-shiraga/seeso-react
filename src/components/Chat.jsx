@@ -15,6 +15,9 @@ const Chat = () => {
                 }
             });
             setMessages(_messages);
+            // スクロール位置を1番下へ移動
+            const scrollHeight = document.getElementById("messages-area").scrollHeight;
+            document.getElementById("messages-area").scrollTop = scrollHeight;
         });
         return () => {
             unsubscribe();

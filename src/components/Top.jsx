@@ -20,6 +20,7 @@ const Top = () => {
             .then((result) => {
                 if (result.user.email.match(/@oic-ok/)) {
                     history.push('/Main');
+                    window.scrollTo(0, 0);
                     alert(result.user.displayName + 'さんがログインしました。');
 
                 } else {

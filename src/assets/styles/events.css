@@ -21,132 +21,6 @@ p.url{
     font-size: 0.75rem;
     color: gray;
 }
-
-/*************************イベントフォームのデザイン *************************/
-.event-form{
-    background-color: white;
-    padding: 10px 0;
-    border-radius: 5px;
-    text-align: center;
-}
-#send2{
-    background-color: #01579b;
-    color: white;
-    border-radius: 5px;
-    width: 200px;
-    margin: auto;
-    padding: 10px 0;
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
-}
-#send2:hover{
-    background-color: #008DBD;
-    transition: .3s;
-}
-
-/*************************イベント一覧のデザイン *************************/
-
-div.event{
-    /* border: 1px #BFC5CA solid; */
-    max-width: 800px;
-    margin:  10px auto;
-    position: relative;
-    border-radius: 10px;
-    background-color: white;
-    padding: 10px;
-}
-div.event a{
-    text-decoration: none;
-    background-color: #65C7F7;
-    color: white;
-    border-radius: 5px;
-    padding: 5px 20px;
-}
-div.event a:hover{
-    background-color: #008DBD;
-    transition: .3s;
-}
-div.event summary{
-    margin-top: 15px;
-}
-div.event:hover{
-    background: #e8e8e8;
-    transition: .3s;
-    /* box-shadow: 1px 1px 1px #3CB5E0;
-    bottom:6px;
-    right: 6px; */
-
-}
-.event-content{
-    /* 改行を入れる */
-    white-space: pre-wrap;
-}
-div.text{
-    text-align: center;
-}
-.date{
-    display: flex;
-    justify-content: space-between;
-}
-h2{
-    margin: 15px 0 25px;
-}
-p{
-    margin: 5px;
-}
-
-.online{
-    background-color: skyblue;
-    padding: 2px;
-}
-.offline{
-    background-color: blue;
-    color: white;
-    padding: 2px;
-}
-/*************************アコーディオンのデザイン *************************/
-summary{
-    cursor: pointer;
-    outline: none;
-}
-
-/* Chrome、Safari以外 */
-summary.event{
-    display: block;
-    background-color: #65C7F7;
-    color: white;
-    border-radius: 5px;
-    width: 200px;
-    margin: auto;
-    text-align: center;
-    padding: 10px 0;
-}
-summary.event:hover{
-    background-color: #008DBD;
-    transition: .3s;
-}
-  
-  /* Chrome、Safari */
-summary::-webkit-details-marker.event{
-    display: none;
-}
-/* オープン時にアニメーションを設定 */
-details[open] .event-form {
-    animation: fadeIn 0.5s ease;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0; /* 透明 */
-        transform: translateY(-10px); /* 上から表示 */
-    }
-    100% {
-        opacity: 1;
-        transform: none;
-    }
-}
-
 button.event{
     display: block;
     background-color: #01579b;
@@ -161,10 +35,106 @@ button.event:hover{
     background-color: #039be5;
     transition: .6s;
 }
+
+/*************************イベントフォームのデザイン *************************/
+.event-form{
+    background-color: white;
+    padding: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+/*************************イベント一覧のデザイン *************************/
+
+div.event{
+    max-width: 800px;
+    margin:  10px auto;
+    border-radius: 10px;
+    background-color: white;
+    padding: 10px;
+}
+div.event a{
+    text-decoration: none;
+    background-color: #01579b;
+    color: white;
+    border-radius: 50px;
+    padding: 5px 20px;
+}
+div.event a:hover{
+    background-color: #008DBD;
+    transition: .6s;
+}
+div.event summary{
+    margin-top: 15px;
+    
+    
+}
+/* div.event:hover{
+    background: #f8f8f8;
+    transition: .3s;
+
+} */
+.event-content{
+    /* 改行を入れる */
+    white-space: pre-wrap;
+    
+}
+div.text{
+    text-align: center;
+}
+.date{
+    display: flex;
+    justify-content: space-between;
+}
+h2{
+    margin: 15px 0 25px;
+}
+p.author-name{
+    margin-bottom: 20px;
+}
+
+.online{
+    background-color: #01579b;
+    color: #fff;
+    padding: 2px;
+}
+.offline{
+    border: #01579b 1px solid;
+    color: #01579b;
+    padding: 2px;
+}
+
+/*************************アコーディオンのデザイン *************************/
+summary{
+    cursor: pointer;
+    outline: none;
+}
+details.event{
+    margin-top: 20px;
+}
+details[open] summary {
+    color: #aaa;
+}
+details[open] .event-content {
+    animation: fadeIn 0.6s ease;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0; /* 透明 */
+      transform: translateY(-10px); /* 上から表示 */
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+
 /*************************スマホのデザイン *************************/
 @media(max-width:700px){
     .form-area{
-        width: 320px;
+        width: 250px;
     }
     .event-form{
         margin: 10px 5px 0;

@@ -1,26 +1,48 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import firebase from '../firebase/firebase';
 
 const Event = () => {
+
+    const [eventsData, setEventsData] = useState([]);
+
+    useEffect(() => {
+        const db = firebase.firestore();
+        const unsubscribe =  db.collection("events").orderBy("date", "desc").onSnapshot((querySnapshot) => {
+            const _eventsData = querySnapshot.docs.map((doc) => {
+                return {
+                    eventsDataId: doc.id,
+                    ...doc.data()
+                }
+            });
+            setEventsData(_eventsData);
+        });
+        return () => {
+            unsubscribe();
+        }  
+    },[])
+
     return (
-        <div>
+        <>
+            {eventsData.map(event => 
             <div className="event">
                 <div className="date">
-                    <p>日時</p>
+                    <p>開催日: {event.date}</p>
                     <p>会場:
-                        <span className="online or offline">オンラインorオフライン</span>
+                        <span className={event.venue === 'オンライン' ? 'online' : 'offline'}>{event.venue}</span>
                     </p>
                 </div>
-                <h2>タイトル</h2>
+                <h2>{event.title}</h2>
                 <div>
-                    <p>作成者</p>
-                    <a href="url" target="_blank" rel="noopener nofollow">参加</a>
+                    <p className="author-name">作成者: {event.name}</p>
+                    <a href={event.lineUrl} target="_blank" rel="noopener nofollow">参加</a>
                 </div>
-                <details>
-                    <summary>詳細</summary>
-                    <p className="event-content">内容</p>
+                <details className="event">
+                    <summary>イベント内容</summary>
+                    <p className="event-content">{event.content}</p>
                 </details>
             </div>
-        </div>
+            )}
+        </>
     )
 }
 

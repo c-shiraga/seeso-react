@@ -47,7 +47,7 @@ const Community = () => {
                         <div id="bms_send_btn" 
                              onClick={sendMessage}
                              className={message ? 'sendPossible' : 'sendImpossible'}>
-                                 送信
+                                 <i class="fas fa-paper-plane fa-lg"></i>
                         </div>
                     </div>
             </section>

@@ -1,11 +1,23 @@
 import React, {useEffect, useState} from 'react';
 import { Link } from 'react-scroll';
+import firebase from '../firebase/firebase';
+import { useHistory } from 'react-router-dom';
+import {history} from '../App';
 
 
 const Header = () => {
 
+    const history = useHistory();
+
     const [scrollPosition, setScrollPosition] = useState(0);
     const [maxScrollPosition, setMaxScrollPosition] = useState(0);
+
+    const signOut = async () => {
+        await firebase.auth().signOut();
+        alert('サインアウトしました。')
+        history.push('/');
+        window.scrollTo(0, 0);
+    }
     
     
     
@@ -22,51 +34,45 @@ const Header = () => {
                 <h1 className="title-logo">SEESO</h1>
                 <h2>{scrollPosition}</h2>
                 <h2>{maxScrollPosition}</h2>
-                <button id="sign-out">sign out</button>
+                <button id="sign-out" onClick={signOut}>sign out</button>
                 <nav className="hd">
                     <div className="hd">
-                        {/* <HashLink smooth to="/Main#Events-area"> */}
                         <Link
                             activeClass="active"
                             to="Events-area"
                             spy={true}
                             smooth={true}
                             offset={0}
-                            duration= {400}
+                            duration= {500}
                         >
                             <span className={(maxScrollPosition - scrollPosition) > 2151 ? 'current' : 'noCurrent'}>
                                 Events
                             </span> 
                         </Link>
-                        {/* </HashLink> */}
-                        {/* <HashLink smooth to="/Main#Community-area"> */}
                         <Link
                             activeClass="active"
                             to="Community-area"
                             spy={true}
                             smooth={true}
                             offset={0}
-                            duration= {400}
+                            duration= {500}
                         >
                             <span className={(maxScrollPosition - scrollPosition) < 1997 && (maxScrollPosition - scrollPosition) > 1257 ? 'current' : 'noCurrent'}>
                                 Community
                             </span> 
                         </Link>
-                        {/* </HashLink>
-                        <HashLink smooth to="/Main#Contact-area"> */}
                         <Link
                             activeClass="active"
                             to="Contact-area"
                             spy={true}
                             smooth={true}
                             offset={0}
-                            duration= {400}
+                            duration= {500}
                         >
                             <span className={(maxScrollPosition - scrollPosition) < 1097 ? 'current' : 'noCurrent'}>
                                 Contact
                             </span> 
                         </Link>
-                        {/* </HashLink> */}
                     </div>
                 </nav>
             </header>

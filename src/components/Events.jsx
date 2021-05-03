@@ -2,6 +2,7 @@ import React from 'react';
 import '../assets/styles/index.css';
 import '../assets/styles/events.css';
 import CreateEvent from './CreateEvent';
+import Event from './Event';
 
 
 
@@ -10,11 +11,7 @@ const Events = () => {
         <div id="Events-area">
             <h2 className="content-title">Events</h2>
             <CreateEvent />
-            <section className="main-section">
-                <div id="events-area">
-                    <div id="eventlog"></div>
-                </div>
-            </section>
+            <Event />
             <div className="smf-nav">
                 <div className="smf-nav-list">
                     <div><a href="./events.html"><img src="../img/calender_icon.png" alt="" /></a></div>
