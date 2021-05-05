@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import firebase from '../firebase/firebase';
+import Linkify from 'linkifyjs/react';
+
+
 
 const Chat = () => {
+    
 
     const [messages, setMessages] = useState([]);
+
+
 
     useEffect(() => {
         const db = firebase.firestore();
@@ -34,21 +40,26 @@ const Chat = () => {
         );
     }
 
+
     return (
-        <div>
+        <>
             {messages.map(message => 
                 <div className="message">
                     <img src={message.photo} alt="" className="chat-photo" />
                     <div>
                         <span className="chat-name">{message.name}</span><br/>
                         <div className="chat-msg-box">
-                            <span className="chat-msg">{message.msg}</span>
+                            <span className="chat-msg">
+                                <Linkify options={{target: '_blank', rel: 'noopener noreferrer', className: 'linkified'}}>
+                                    {message.msg.replace(/http/g, " http")}
+                                </Linkify>
+                            </span>
                         </div>
                         <span className="chat-time">{getStrTime(message.date)}</span>
                     </div>
                 </div>
             )}
-        </div>
+        </>
     )
 }
 

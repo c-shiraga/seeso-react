@@ -10,15 +10,16 @@ const ErrorPage = () => {
 
     const returnTop = () => {
         history.push('/');
+        window.scrollTo(0, 0);
     }
 
     return (
         <div>
             <div class="sign-in-error">
                 <div class="error-message-area">
-                    <img src={logo} alt=""/>
+                    <img src={logo} alt="" className="error-logo" />
                     <p className="error">このWebサイトは、<br />
-                        専門学校岡山情報ビジネス学院の学生専用です。</p>
+                        専門学校岡山情報ビジネス学院の学生専用のSNSです。</p>
                     <p className="error"><span className="error">OICアカウント</span>でサインインしてください。</p>
                 </div>
                 <div class="error-img-area">

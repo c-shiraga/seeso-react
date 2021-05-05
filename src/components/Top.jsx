@@ -7,6 +7,9 @@ import create from '../assets/img/createImg.png';
 import chat from '../assets/img/chatImg.png';
 import line from '../assets/img/lineImg.png';
 import topChar2 from '../assets/img/charSmile.png';
+import Footer from './Footer';
+
+
 
 const Top = () => {
     
@@ -26,7 +29,9 @@ const Top = () => {
                 } else {
                     // alert('OICアカウントでサインインしてください')
                     // location.href = '../html/error.html';
+                    firebase.auth().signOut();
                     history.push('/ErrorPage');
+                    window.scrollTo(0, 0);
                 }
             })
             .catch(function(error) {
@@ -96,7 +101,9 @@ const Top = () => {
                     </div>
                 </div>  
             </div>
+            <Footer />
         </div>
+        
     )
 }
 

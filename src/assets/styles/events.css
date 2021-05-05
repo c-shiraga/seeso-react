@@ -49,6 +49,7 @@ button.event:hover{
 
 div.event{
     max-width: 800px;
+    word-break:break-all;/*半角文字でもwidth幅で切り返すために必要*/
     margin:  10px auto;
     border-radius: 10px;
     background-color: white;
@@ -134,7 +135,8 @@ details[open] .event-content {
 /*************************スマホのデザイン *************************/
 @media(max-width:700px){
     .form-area{
-        width: 250px;
+        width: 100%;
+        margin-bottom: 5px;
     }
     .event-form{
         margin: 10px 5px 0;
@@ -142,14 +144,36 @@ details[open] .event-content {
     #events-area{
         margin: 0 5px;
     }
-    footer{
+    /* footer{
         margin-bottom: 50px;
-    }
+    } */
     p.url{
         font-size: 0.5rem;
     }
     nav.ft{
         display: none;
+    }
+    button.event{
+        margin-top: 10px;
+        width: 170px;
+        padding: 8px 0;
+    }
+    h2.event{
+        margin: 5px 0;
+        font-size: 1.2rem;
+    }
+    div.event{
+        margin: 10px 5px;
+    }
+    .event{
+        font-size: 0.9rem;
+    }
+    p.author-name{
+        margin-bottom: 10px;
+    }
+    .event-form{
+        padding: 0;
+        margin-top: -15px;
     }
 }
   

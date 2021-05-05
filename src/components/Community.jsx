@@ -34,9 +34,9 @@ const Community = () => {
             <h2 className="content-title">Community</h2>
             <section className="main-section">
                     <div id="messages-area">
-                        <div id="chatlog">
+                        {/* <div id="chatlog"> */}
                             <Chat />
-                        </div>
+                        {/* </div> */}
                     </div>
                     <div id="bms_send">
                         <textarea
@@ -51,13 +51,6 @@ const Community = () => {
                         </div>
                     </div>
             </section>
-            <div className="smf-nav">
-                <div className="smf-nav-list">
-                    <div><a href="./events.html"><img src="../img/calender_icon.png" alt="" /></a></div>
-                    <div><a href="./community.html"><img src="../img/chat_icon.png" alt="" /></a></div>
-                    <div><a href="./contact.html"><img src="../img/mail_icon.png" alt="" /></a></div>
-                </div>
-            </div>
         </div>
     )
 }

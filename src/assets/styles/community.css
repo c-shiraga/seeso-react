@@ -29,7 +29,7 @@
     border: #aaa 2px solid;
     border-radius: 4px;/*角丸*/
     text-align: left;/*文字を左寄せ*/
-    box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.2) inset;/*内側に影を入れてテキストエリアらしくした*/
+    box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.2); 
     box-sizing: border-box;/*paddingとborderの要素の高さと幅の影響をなくす（要素に高さと幅を含める）*/
     outline: none;
 }
@@ -81,12 +81,17 @@ div.message{
 }
 .chat-msg{
     white-space: pre-wrap;
+    word-break:break-all;/*半角文字でもwidth幅で切り返すために必要*/
+    max-width: 800px;
 }
 .chat-time{
     font-size: 8pt;
     color: #bbb;
     margin-left: 5px;
     min-width: 100px;
+}
+.linkifield{
+    max-width: 800px;
 }
 /*********************************スマホ対応**************************************/
 @media(max-width:700px){
@@ -96,11 +101,20 @@ div.message{
     .chat-msg{
         font-size: 0.9rem;
     }
-    footer{
+    /* footer{
         margin-bottom: 50px;
-    }
+    } */
     nav.ft{
         display: none;
+    }
+    #messages-area{
+        height: 75vh;
+    }
+    #bms_send_btn{
+        width: 60px;
+    }
+    #bms_send_message{
+        width: calc(100% - 63px);
     }
 }
 

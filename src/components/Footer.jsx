@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Footer = () => {
+
+    const [pageUrl, setPageUrl] = useState("");
+
+    useEffect(() => {
+        setPageUrl(window.location.href);
+    },[])
+
     return (
         <>
-            <footer>
+            <footer className={pageUrl.match(/Main/) ? 'mainFooter' : 'topFooter'}>
                 <a href="https://shirokuma-lab.github.io/shirokumaHP/"
                    target="_blank"
-                   rel="noopener"
+                   rel="noopener noreferrer"
                    className="shirokuma-logo">
                        しろくまLab
                 </a>

@@ -5,6 +5,8 @@ import Events from './Events';
 import Community from './Community';
 import Contact from './Contact';
 import Header from './Header';
+import Footer from './Footer';
+
 
 export const UserProfile = React.createContext();
 
@@ -16,9 +18,12 @@ const Main = () => {
 
     useEffect(() => {
         firebase.auth().onAuthStateChanged(function(user) {
-            if (user.email.match(/@oic-ok/)) {
+            if (!user) {
+                history.push('/ErrorPage');
+            } else if(user.email.match(/@oic-ok/)){
                 setCurrentUser({name: user.displayName, photo: user.photoURL});
-            } else {
+                
+            }else{
                 history.push('/ErrorPage');
             }
           });
@@ -34,6 +39,7 @@ const Main = () => {
                 </UserProfile.Provider>   
                 <Contact/>
             </div>
+            <Footer />
         </div>
     )
 }

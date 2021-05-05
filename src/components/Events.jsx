@@ -12,13 +12,6 @@ const Events = () => {
             <h2 className="content-title">Events</h2>
             <CreateEvent />
             <Event />
-            <div className="smf-nav">
-                <div className="smf-nav-list">
-                    <div><a href="./events.html"><img src="../img/calender_icon.png" alt="" /></a></div>
-                    <div><a href="./community.html"><img src="../img/chat_icon.png" alt="" /></a></div>
-                    <div><a href="./contact.html"><img src="../img/mail_icon.png" alt="" /></a></div>
-                </div>
-            </div>
         </div>
     )
 }

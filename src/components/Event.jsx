@@ -31,7 +31,7 @@ const Event = () => {
                         <span className={event.venue === 'オンライン' ? 'online' : 'offline'}>{event.venue}</span>
                     </p>
                 </div>
-                <h2>{event.title}</h2>
+                <h2 className="event">{event.title}</h2>
                 <div>
                     <p className="author-name">作成者: {event.name}</p>
                     <a href={event.lineUrl} target="_blank" rel="noopener nofollow">参加</a>
