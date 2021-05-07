@@ -1,8 +1,8 @@
-![SEESO](https://user-images.githubusercontent.com/72398075/114747049-61196000-9d8b-11eb-9fad-fdbc47220067.png)
+![seeso-oic](https://user-images.githubusercontent.com/72398075/117485047-e2d36680-afa2-11eb-9d51-edd6db08bd47.png)
 # SEESO
 
 ## 説明
-専門学校岡山情報ビジネス学院(OIC)の学生専用のイベント作成用SNSのSEESOを、React.jsを使用しSPAとして実装しました。<br>
+専門学校岡山情報ビジネス学院(OIC)の、学生専用のイベント作成用SNSのSEESOを、React.jsを使用しSPAとして実装しました。<br>
 SEESOの由来は、<br>
 <br>
 S・・・stusent(学生)<br>
@@ -13,6 +13,9 @@ O・・・OIC(専門学校岡山情報ビジネス学院)<br>
 <br>
 となっています。<br>
 <br>
+
+https://seeso-oic.web.app/
+※OICアカウントのみログイン可能となっています。
 
 
 ## 機能
