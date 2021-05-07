@@ -24,8 +24,6 @@ https://seeso-oic.web.app/
 - イベント作成機能
 
 ## 使用言語・ツール・ライブラリ等
-- HTML
-- CSS
 - react@17.0.2
 - material-ui/core@4.11.4
 - firebase@8.4.2(Authentication、Cloud Firestore、Hosting)
