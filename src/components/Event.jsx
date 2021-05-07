@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import firebase from '../firebase/firebase';
+import Linkify from 'linkifyjs/react';
 
 const Event = () => {
 
@@ -34,11 +35,15 @@ const Event = () => {
                 <h2 className="event">{event.title}</h2>
                 <div>
                     <p className="author-name">作成者: {event.name}</p>
-                    <a href={event.lineUrl} target="_blank" rel="noopener nofollow">参加</a>
+                    <a href={event.lineUrl} target="_blank" rel="noopener nofollow" className="event">参加</a>
                 </div>
                 <details className="event">
                     <summary>イベント内容</summary>
-                    <p className="event-content">{event.content}</p>
+                    <p className="event-content">
+                    <Linkify options={{target: '_blank', rel: 'noopener noreferrer', className: 'linkified'}}>
+                        {event.content.replace(/http/g, " http")}
+                    </Linkify>
+                    </p>
                 </details>
             </div>
             )}

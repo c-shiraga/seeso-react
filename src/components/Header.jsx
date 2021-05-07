@@ -30,8 +30,6 @@ const Header = () => {
         <div>
             <header>
                 <h1 className="title-logo">SEESO</h1>
-                <h2>{scrollPosition}</h2>
-                <h2>{maxScrollPosition}</h2>
                 <button id="sign-out" onClick={signOut}>sign out</button>
                 <nav className="hd">
                     <div className="hd">

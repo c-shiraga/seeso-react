@@ -34,9 +34,7 @@ const Community = () => {
             <h2 className="content-title">Community</h2>
             <section className="main-section">
                     <div id="messages-area">
-                        {/* <div id="chatlog"> */}
-                            <Chat />
-                        {/* </div> */}
+                        <Chat />
                     </div>
                     <div id="bms_send">
                         <textarea
