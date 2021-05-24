@@ -77,6 +77,7 @@ div.message{
     border-radius: 0 20px 20px 20px;
     display: inline-block;
     max-width: 800px;
+    cursor: pointer;
 }
 .chat-msg{
     white-space: pre-wrap;

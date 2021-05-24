@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import {UserProfile} from './Main';
 import firebase from '../firebase/firebase';
 import Linkify from 'linkifyjs/react';
 
 
 
 const Chat = () => {
-    
+    const [currentUser , setCurrentUser] = useContext(UserProfile);
 
     const [messages, setMessages] = useState([]);
-
-
 
     useEffect(() => {
         const db = firebase.firestore();
@@ -40,15 +39,29 @@ const Chat = () => {
         );
     }
 
+    // 投稿削除機能
+    const chatDelete = async (document, chatName) => {
+        if(currentUser.name === chatName){
+            const res = window.confirm("投稿を削除しますか？");
+            if(res){
+                const db = firebase.firestore();
+                await db.collection("chatroom").doc(document).delete()
+                alert("投稿を削除しました。")
+            }  
+                // console.log("Document successfully deleted!");
+            
+        }
+    }
+
 
     return (
-        <>
+        <div>
             {messages.map(message => 
                 <div className="message">
                     <img src={message.photo} alt="" className="chat-photo" />
                     <div>
                         <span className="chat-name">{message.name}</span><br/>
-                        <div className="chat-msg-box">
+                        <div className="chat-msg-box" onClick={() => chatDelete(message.messageId, message.name)}>
                             <span className="chat-msg">
                                 <Linkify options={{target: '_blank', rel: 'noopener noreferrer', className: 'linkified'}}>
                                     {message.msg.replace(/http/g, " http")}
@@ -59,7 +72,7 @@ const Chat = () => {
                     </div>
                 </div>
             )}
-        </>
+        </div>
     )
 }
 

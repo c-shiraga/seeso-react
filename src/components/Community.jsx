@@ -41,11 +41,11 @@ const Community = () => {
                             id="bms_send_message" 
                             value={message}
                             onChange={(event) => {setMessage(event.target.value)}}>
-                         </textarea>
+                        </textarea>
                         <div id="bms_send_btn" 
-                             onClick={sendMessage}
-                             className={message ? 'sendPossible' : 'sendImpossible'}>
-                                 <i class="fas fa-paper-plane fa-lg"></i>
+                            onClick={sendMessage}
+                            className={message ? 'sendPossible' : 'sendImpossible'}>
+                                <i class="fas fa-paper-plane fa-lg"></i>
                         </div>
                     </div>
             </section>
