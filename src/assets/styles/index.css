@@ -344,6 +344,9 @@ h3.step-title-center{
     .smf-current{
         color: #01579b;
     }
+    .smf-noCurrent{
+        color: #bbb;
+    }
     
     header{
         height: 40px;

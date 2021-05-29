@@ -56,19 +56,39 @@ const Chat = () => {
 
     return (
         <div>
-            {messages.map(message => 
-                <div className="message">
-                    <img src={message.photo} alt="" className="chat-photo" />
-                    <div>
-                        <span className="chat-name">{message.name}</span><br/>
-                        <div className="chat-msg-box" onClick={() => chatDelete(message.messageId, message.name)}>
+            {messages.map(message =>
+                message.name === currentUser.name ?
+                
+                <div className="current-message">
+                    <div className="message-box">
+                        <span className="chat-time">{getStrTime(message.date)}</span>
+                        <div className="current-chat-msg-box" >
                             <span className="chat-msg">
                                 <Linkify options={{target: '_blank', rel: 'noopener noreferrer', className: 'linkified'}}>
                                     {message.msg.replace(/http/g, " http")}
                                 </Linkify>
                             </span>
                         </div>
-                        <span className="chat-time">{getStrTime(message.date)}</span>
+                        
+                    </div>
+                    <img src={message.photo} alt="" className="current-chat-photo" onClick={() => chatDelete(message.messageId, message.name)} />
+                </div>
+                :
+                <div className="message">
+                    <img src={message.photo} alt="" className="chat-photo" />
+                    <div>
+                        <span className="chat-name">{message.name}</span><br/>
+                        <div className="message-box">
+                            <div className="chat-msg-box">
+                                <span className="chat-msg">
+                                    <Linkify options={{target: '_blank', rel: 'noopener noreferrer', className: 'linkified'}}>
+                                        {message.msg.replace(/http/g, " http")}
+                                    </Linkify>
+                                </span>
+                            </div>
+                            <span className="chat-time">{getStrTime(message.date)}</span>
+                        </div>
+                        
                     </div>
                 </div>
             )}
