@@ -26,7 +26,7 @@ const Main = () => {
             }else{
                 history.push('/ErrorPage');
             }
-          });
+        });
     },[])
 
     return (

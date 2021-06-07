@@ -9,7 +9,6 @@
 }
 
 
-/* テキストエリア、送信ボタン④ */
 #bms_send {
     background-color:#eee;/*タイムラインの色と同じにする*/
     border-right: 1px solid #ddd;
@@ -62,22 +61,60 @@ div.message{
     display: flex;
     margin: 30px 20px 0;
 }
+.current-message{
+    display: flex;
+    
+    margin: 10px 20px 0;
+    justify-content: flex-end;
+    
+}
+
 .chat-photo{
     border-radius: 50%;
     width: 30px;
     height: 30px;
     margin-right: 10px;
 }
+.current-chat-photo{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    cursor: pointer;
+    
+}
 .chat-name{
     font-size: 8pt;
+    
+    
 }
 .chat-msg-box{
     background-color: #eee;
     padding: 8px 10px 8px 10px;
     border-radius: 0 20px 20px 20px;
-    display: inline-block;
+    /* display: inline-block; */
     max-width: 800px;
-    cursor: pointer;
+    
+}
+.current-chat-msg-box{
+    background-color: dodgerBlue;
+    color: white;
+    padding: 8px 10px 8px 10px;
+    border-radius: 20px 0px 20px 20px;
+    /* display: inline-block; */
+    max-width: 800px;
+    margin-top: 20px;
+    margin-left: -10px;
+    
+}
+.message-box{
+    display: flex;
+    align-items: flex-end;
+}
+.current-message-box{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
 .chat-msg{
     white-space: pre-wrap;
@@ -89,6 +126,10 @@ div.message{
     color: #bbb;
     margin-left: 5px;
     min-width: 100px;
+    margin-right: -20px;
+    
+    
+    
 }
 .linkifield{
     max-width: 800px;
@@ -96,7 +137,13 @@ div.message{
 /*********************************スマホ対応**************************************/
 @media(max-width:700px){
     div.message{
-        margin: 5px 20px 0;
+        margin: 5px 10px 10px;
+    }
+    .current-message{
+        
+        margin: 10px 20px 10px;
+        
+        
     }
     .chat-msg{
         font-size: 0.9rem;
@@ -116,6 +163,9 @@ div.message{
     }
     #bms_send_message{
         width: calc(100% - 63px);
+    }
+    .current-chat-photo{
+        margin-right: -10px;
     }
 }
 
