@@ -52,8 +52,6 @@ const Chat = () => {
             
         }
     }
-
-
     return (
         <div>
             {messages.map(message =>

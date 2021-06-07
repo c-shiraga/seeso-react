@@ -25,7 +25,7 @@ const Header = () => {
             setScrollPosition(window.pageYOffset);  
         })
     })
-       
+    
     return (
         <div>
             <header>
