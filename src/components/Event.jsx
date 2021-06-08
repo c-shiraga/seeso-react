@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import {UserProfile} from './Main';
 import firebase from '../firebase/firebase';
 import Linkify from 'linkifyjs/react';
 
 const Event = () => {
+    const [currentUser , setCurrentUser] = useContext(UserProfile);
 
     const [eventsData, setEventsData] = useState([]);
 
@@ -21,6 +23,19 @@ const Event = () => {
             unsubscribe();
         }  
     },[])
+
+    // イベント削除機能
+    const eventDelete = async (document, eventName) => {
+        if(currentUser.name === eventName){
+            const res = window.confirm("イベントを削除しますか？");
+            if(res){
+                const db = firebase.firestore();
+                await db.collection("events").doc(document).delete()
+                alert("イベントを削除しました。")
+            }  
+            
+        }
+    }
 
     return (
         <>
@@ -45,6 +60,16 @@ const Event = () => {
                     </Linkify>
                     </p>
                 </details>
+                <p className={event.name === currentUser.name ? 
+                                "event-delete-button" 
+                                : 
+                                "no-event-delete-button"}
+                >
+                    <button onClick={() => eventDelete(event.eventsDataId, event.name)}>
+                        削除
+                    </button>
+                        
+                </p>
             </div>
             )}
         </>

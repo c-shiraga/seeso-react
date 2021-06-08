@@ -112,7 +112,7 @@ const CreateEvent = () => {
                                     type="radio" 
                                     name="venue" 
                                     value="オフライン"
-                                     />オフライン
+                                    />オフライン
                             </div>
                             <div className="form-content">
                                 <div>

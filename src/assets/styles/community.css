@@ -63,7 +63,6 @@ div.message{
 }
 .current-message{
     display: flex;
-    
     margin: 10px 20px 0;
     justify-content: flex-end;
     
@@ -128,11 +127,18 @@ div.message{
     min-width: 100px;
     margin-right: -20px;
     
-    
-    
 }
 .linkifield{
     max-width: 800px;
+}
+.delete-button{
+    color: #aaa;
+    margin-left: 10px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    margin-top: 40px;
+    margin-right: -15px;
+    
 }
 /*********************************スマホ対応**************************************/
 @media(max-width:700px){

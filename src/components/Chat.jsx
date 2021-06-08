@@ -69,8 +69,13 @@ const Chat = () => {
                         </div>
                         
                     </div>
-                    <img src={message.photo} alt="" className="current-chat-photo" onClick={() => chatDelete(message.messageId, message.name)} />
+                    <p className="delete-button"
+                        onClick={() => chatDelete(message.messageId, message.name)}
+                    >
+                        削除
+                    </p>
                 </div>
+                
                 :
                 <div className="message">
                     <img src={message.photo} alt="" className="chat-photo" />
