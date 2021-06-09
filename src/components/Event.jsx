@@ -1,10 +1,12 @@
 import React, { useEffect, useState, useContext } from 'react';
 import {UserProfile} from './Main';
+import {KeyWord} from './Main';
 import firebase from '../firebase/firebase';
 import Linkify from 'linkifyjs/react';
 
 const Event = () => {
     const [currentUser , setCurrentUser] = useContext(UserProfile);
+    const [searchWord, setSearchWord] = useContext(KeyWord);
 
     const [eventsData, setEventsData] = useState([]);
 
@@ -39,39 +41,79 @@ const Event = () => {
 
     return (
         <>
-            {eventsData.map(event => 
-            <div className="event">
-                <div className="date">
-                    <p>開催日: {event.date}</p>
-                    <p>会場:
-                        <span className={event.venue === 'オンライン' ? 'online' : 'offline'}>{event.venue}</span>
+            {searchWord == "" ?
+                eventsData.map(event => 
+                <div className="event">
+                    <div className="date">
+                        <p>開催日: {event.date}</p>
+                        <p>会場:
+                            <span className={event.venue === 'オンライン' ? 'online' : 'offline'}>{event.venue}</span>
+                        </p>
+                    </div>
+                    <h2 className="event">{event.title}</h2>
+                    <div>
+                        <p className="author-name">作成者: {event.name}</p>
+                        <a href={event.lineUrl} target="_blank" rel="noopener nofollow" className="event">参加</a>
+                    </div>
+                    <details className="event">
+                        <summary>イベント内容</summary>
+                        <p className="event-content">
+                        <Linkify options={{target: '_blank', rel: 'noopener noreferrer', className: 'linkified'}}>
+                            {event.content.replace(/http/g, " http")}
+                        </Linkify>
+                        </p>
+                    </details>
+                    <p className={event.name === currentUser.name ? 
+                                    "event-delete-button" 
+                                    : 
+                                    "no-event-delete-button"}
+                    >
+                        <button onClick={() => eventDelete(event.eventsDataId, event.name)}>
+                            削除
+                        </button>
+                            
                     </p>
                 </div>
-                <h2 className="event">{event.title}</h2>
-                <div>
-                    <p className="author-name">作成者: {event.name}</p>
-                    <a href={event.lineUrl} target="_blank" rel="noopener nofollow" className="event">参加</a>
-                </div>
-                <details className="event">
-                    <summary>イベント内容</summary>
-                    <p className="event-content">
-                    <Linkify options={{target: '_blank', rel: 'noopener noreferrer', className: 'linkified'}}>
-                        {event.content.replace(/http/g, " http")}
-                    </Linkify>
-                    </p>
-                </details>
-                <p className={event.name === currentUser.name ? 
-                                "event-delete-button" 
-                                : 
-                                "no-event-delete-button"}
-                >
-                    <button onClick={() => eventDelete(event.eventsDataId, event.name)}>
-                        削除
-                    </button>
-                        
-                </p>
-            </div>
-            )}
+                )
+                :
+                eventsData.filter(event => {
+                    return event.title.includes(searchWord) || event.content.includes(searchWord);
+                })
+                .map(event => 
+                    <div className="event">
+                        <div className="date">
+                            <p>開催日: {event.date}</p>
+                            <p>会場:
+                                <span className={event.venue === 'オンライン' ? 'online' : 'offline'}>{event.venue}</span>
+                            </p>
+                        </div>
+                        <h2 className="event">{event.title}</h2>
+                        {/* <h2 className="event">{searchWord}</h2> */}
+                        <div>
+                            <p className="author-name">作成者: {event.name}</p>
+                            <a href={event.lineUrl} target="_blank" rel="noopener nofollow" className="event">参加</a>
+                        </div>
+                        <details className="event">
+                            <summary>イベント内容</summary>
+                            <p className="event-content">
+                            <Linkify options={{target: '_blank', rel: 'noopener noreferrer', className: 'linkified'}}>
+                                {event.content.replace(/http/g, " http")}
+                            </Linkify>
+                            </p>
+                        </details>
+                        <p className={event.name === currentUser.name ? 
+                                        "event-delete-button" 
+                                        : 
+                                        "no-event-delete-button"}
+                        >
+                            <button onClick={() => eventDelete(event.eventsDataId, event.name)}>
+                                削除
+                            </button>
+                                
+                        </p>
+                    </div>
+                )
+            }
         </>
     )
 }

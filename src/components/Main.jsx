@@ -7,8 +7,9 @@ import Contact from './Contact';
 import Header from './Header';
 import Footer from './Footer';
 
-
+export const KeyWord = React.createContext();
 export const UserProfile = React.createContext();
+
 
 const Main = () => {
 
@@ -32,7 +33,7 @@ const Main = () => {
 
     return (
         <div>
-            <UserProfile.Provider value={[searchWord  , setSearchWord ]}>
+            <KeyWord.Provider value={[searchWord  , setSearchWord ]}>
                 <Header />
                 <div id="main-content-area">
                 <UserProfile.Provider value={[currentUser, setCurrentUser]}>
@@ -41,7 +42,7 @@ const Main = () => {
                 </UserProfile.Provider>
                 <Contact/>
                 </div>
-            </UserProfile.Provider>
+            </KeyWord.Provider>
             <Footer />
         </div>
     )

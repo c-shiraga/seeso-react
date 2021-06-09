@@ -19,7 +19,7 @@ div.form-content{
 }
 p.url{
     font-size: 0.75rem;
-    color: gray;
+    color: #aaa;
 }
 button.event{
     display: block;

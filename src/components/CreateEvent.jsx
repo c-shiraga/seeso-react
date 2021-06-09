@@ -77,7 +77,7 @@ const CreateEvent = () => {
                         <form onsubmit="return false" name="form1" >
                             <div className="form-content">
                                 <div>
-                                    <label for="" className="event">日時</label>
+                                    <label for="" className="event">開催日時</label>
                                 </div>
                                 <input 
                                     type="date" 
@@ -116,9 +116,9 @@ const CreateEvent = () => {
                             </div>
                             <div className="form-content">
                                 <div>
-                                <label for="" className="event">URL</label><br />
+                                <label for="" className="event">LINEオープンチャットの招待リンク</label><br />
                                 <p className="url">
-                                    ※既に作成している、LINEオープンチャットのリンクをコピーし、そのまま貼って下さい
+                                    ※既に作成している、LINEオープンチャットの招待リンクをコピーし、そのまま貼って下さい
                                 </p>
                                 </div>
                                 <input 
@@ -130,7 +130,7 @@ const CreateEvent = () => {
                             </div>
                             <div className="form-content">
                                 <div>
-                                    <label for="" className="event">内容</label>
+                                    <label for="" className="event">イベント内容</label>
                                 </div>
                                 <textarea 
                                     name="content" 

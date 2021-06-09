@@ -31,7 +31,6 @@ const Header = () => {
         <div>
             <header>
                 <h1 className="title-logo">SEESO</h1>
-                <h2>{scrollPosition}</h2>
                 <button id="sign-out" onClick={signOut}>sign out</button>
                 <div className="search-nav-area">
                 <SearchBar />

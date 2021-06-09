@@ -61,7 +61,7 @@ const Top = () => {
                         <div className="top-comment-area">
                             <h3 className="step-title-left">イベントを作成し、参加者を募集</h3>
                             <p className="top-comment">
-                                イベントは、作成フォームに書き込むだけですぐに作成できる。URLにはLINEのオープンチャットを貼るだけで、簡単参加。
+                                イベントは、作成フォームに書き込むだけですぐに作成できる。事前に作成したLINEオープンチャットの招待リンクを貼るだけで、簡単募集。
                                 zoomでもリアルでも、色々なイベントを開催できる。内容を充実させて、多くの参加者を募ろう。
                             </p>
                         </div>

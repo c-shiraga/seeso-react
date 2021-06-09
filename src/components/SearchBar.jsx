@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
-import {UserProfile} from './Main';
+import {KeyWord} from './Main';
 
 const SearchBar = () => {
 
-    const [searchWord, setSearchWord] = useContext(UserProfile);
+    const [searchWord, setSearchWord] = useContext(KeyWord);
 
     return (
         <div className="search-bar-area">
