@@ -15,6 +15,31 @@ header h1{
     margin-top: 5px;
     margin-left: 10px;
 }
+.search-bar{
+    height: 40px;
+    margin-left: 5px;
+    width: 50px;
+    margin-right: 10px;
+}
+.search-bar:focus{
+    width: 160px;
+    transition: 1s;
+}
+.search-bar-area{
+    background-color: #fff;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 30px;
+    padding-left: 10px;
+    margin-right: 10px;
+}
+.search-icon{
+    color: #aaa;
+}
+
+.search-nav-area{
+    display: flex;
+}
 #main-content-area{
     padding-top: 120px;
 }
@@ -242,7 +267,7 @@ h3.step-title-center{
 }
 
 /*********************************スマホ対応**************************************/
-@media(max-width:700px){
+@media(max-width:850px){
 /*****************Top.jsx**********************/
     .title-logo-img{
         margin-top: 0px;
@@ -377,6 +402,22 @@ h3.step-title-center{
         margin-bottom: 50px;
         width: 100%;
     }
+    .search-bar-area{
+        position: absolute;
+        right: 65px;
+        top: -5px;
+        height: 30px;
+        
+    }
+    .search-bar{
+        margin-top: -5px;
+        width: 50px;
+    }
+    .search-bar:focus{
+        width: 120px;
+        transition: 1s;
+    }
+    
 /*****************Main.jsx**********************/
     #main-content-area{
         padding-top: 40px;

@@ -13,6 +13,7 @@ export const UserProfile = React.createContext();
 const Main = () => {
 
     const [currentUser , setCurrentUser] = useState({ name: "", photo: "" });
+    const [searchWord  , setSearchWord ] = useState("");
 
     const history = useHistory();
 
@@ -31,14 +32,16 @@ const Main = () => {
 
     return (
         <div>
-            <Header />
-            <div id="main-content-area">
+            <UserProfile.Provider value={[searchWord  , setSearchWord ]}>
+                <Header />
+                <div id="main-content-area">
                 <UserProfile.Provider value={[currentUser, setCurrentUser]}>
                     <Events/>
                     <Community/>
-                </UserProfile.Provider>   
+                </UserProfile.Provider>
                 <Contact/>
-            </div>
+                </div>
+            </UserProfile.Provider>
             <Footer />
         </div>
     )

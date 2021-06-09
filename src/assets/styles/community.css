@@ -141,7 +141,7 @@ div.message{
     
 }
 /*********************************スマホ対応**************************************/
-@media(max-width:700px){
+@media(max-width:850px){
     div.message{
         margin: 5px 10px 10px;
     }

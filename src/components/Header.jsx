@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { Link } from 'react-scroll';
 import firebase from '../firebase/firebase';
 import { useHistory } from 'react-router-dom';
+import SearchBar from './SearchBar';
 
 
 const Header = () => {
@@ -30,7 +31,10 @@ const Header = () => {
         <div>
             <header>
                 <h1 className="title-logo">SEESO</h1>
+                <h2>{scrollPosition}</h2>
                 <button id="sign-out" onClick={signOut}>sign out</button>
+                <div className="search-nav-area">
+                <SearchBar />
                 <nav className="hd">
                     <div className="hd">
                         <Link
@@ -71,6 +75,7 @@ const Header = () => {
                         </Link>
                     </div>
                 </nav>
+                </div>
                 
             </header>
                 <div class="smf-nav">
