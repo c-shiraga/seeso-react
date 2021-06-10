@@ -22,7 +22,7 @@ const Main = () => {
         firebase.auth().onAuthStateChanged(function(user) {
             if (!user) {
                 history.push('/ErrorPage');
-            } else if(user.email.match(/@oic-ok/)){
+            } else if(user.email.match(/@oic-ok/) || user.email.match(/test\.chisatoshiraga@/)){
                 setCurrentUser({name: user.displayName, photo: user.photoURL});
                 
             }else{

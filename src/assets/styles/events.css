@@ -163,7 +163,7 @@ details[open] .event-content {
         display: none;
     }
     button.event{
-        margin-top: 10px;
+        margin-top: 20px;
         width: 170px;
         padding: 8px 0;
     }
@@ -187,5 +187,5 @@ details[open] .event-content {
     .event-delete-button{
         margin-top: 0px;
     }
+    
 }
-  

@@ -7,10 +7,11 @@ const SearchBar = () => {
 
     return (
         <div className="search-bar-area">
-            <i class="fas fa-search search-icon fa-lg"></i>
+            {/* <i class="fas fa-search search-icon fa-lg"></i> */}
             <input 
                 type="text" 
                 className="search-bar"
+                placeholder="検索"
                 value={searchWord}
                 onChange={(event) => {setSearchWord(event.target.value)}} 
             />

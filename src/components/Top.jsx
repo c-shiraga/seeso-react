@@ -21,7 +21,7 @@ const Top = () => {
         
         firebase.auth().signInWithPopup(provider)
             .then((result) => {
-                if (result.user.email.match(/@oic-ok/)) {
+                if (result.user.email.match(/@oic-ok/) || result.user.email.match(/test\.chisatoshiraga@/)) {
                     history.push('/Main');
                     window.scrollTo(0, 0);
                     
