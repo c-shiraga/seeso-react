@@ -271,7 +271,7 @@ h3.step-title-center{
 }
 
 /*********************************スマホ対応**************************************/
-@media(max-width:850px){
+@media(max-width:800px){
 /*****************Top.jsx**********************/
     .title-logo-img{
         margin-top: 0px;
@@ -279,7 +279,7 @@ h3.step-title-center{
         height: 158px;
     }
     .main{
-        display: inline-block;
+        display: block;
         text-align: center;
     }
     .main-title{
@@ -301,7 +301,7 @@ h3.step-title-center{
         height: 90%;
     }
     .step-right{
-        display: inline-block;
+        display: block;
         padding: 50px 0;
         
     }
@@ -455,6 +455,67 @@ h3.step-title-center{
 
 
 /*********************************タブレット対応**************************************/
-@media screen and (min-width:701px) and ( max-width:1250px){
-
+@media screen and (min-width:801px) and ( max-width:1100px){
+    .title-logo-img{
+        margin-top: -150px;
+        width: 540px;
+        height: 237px;
+    }
+    .main{
+        display: block;
+        text-align: center;
+    }
+    .step-right{
+        display: block;
+        padding: 50px 0;
+        
+    }
+    .step-left{
+        display: flex;
+        flex-direction: column;
+        clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%);
+        padding: 100px 0;
+        
+    }
+    .top-img{
+        width: 60%;
+        height: 60%;
+    }
+    .top-img-box{
+        text-align: center;
+        order: 1;
+        margin-top: 50px;
+    }
+    .top-comment-img{
+        width: 60%;
+        height: 60%;
+    }
+    h3.step-title-left{
+        font-size: 2.0rem;
+        margin-bottom: 30px;
+        
+    }
+    h3.step-title-right{
+        font-size: 2.0rem;
+        margin-bottom: 30px;
+        
+    }
+    h3.step-title-center{
+        font-size: 2.0rem;
+        margin-bottom: 30px;
+        
+    }
+    .top-comment{
+        font-size: 1.2rem;
+        width: 500px;
+        margin: 0 auto;
+    }
+    .top-comment-area{
+        width: 500px;
+        margin: 0 auto;
+    }
+    .bottom-img{
+        width: 60%;
+        height: 60%;
+    }
 }

@@ -142,7 +142,7 @@ details[open] .event-content {
 
 
 /*************************スマホのデザイン *************************/
-@media(max-width:850px){
+@media(max-width:800px){
     .form-area{
         width: 100%;
         margin-bottom: 5px;

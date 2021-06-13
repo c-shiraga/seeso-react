@@ -11,7 +11,7 @@
     border-radius: 10px;
     
 }
-@media(max-width:850px){
+@media(max-width:800px){
     .emergency-contact{
         font-size: 0.8rem;
     }
