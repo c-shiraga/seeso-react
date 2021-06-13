@@ -18,11 +18,15 @@ const Main = () => {
 
     const history = useHistory();
 
+    
+
     useEffect(() => {
+        const loginIdReg1 = new RegExp(process.env.REACT_APP_APP_ID);
+        const loginIdReg2 = new RegExp(process.env.REACT_APP_APP_ID2);
         firebase.auth().onAuthStateChanged(function(user) {
             if (!user) {
                 history.push('/ErrorPage');
-            } else if(user.email.match(/@oic-ok/) || user.email.match(/test\.chisatoshiraga@/)){
+            } else if(user.email.match(loginIdReg1) || user.email.match(loginIdReg2)){
                 setCurrentUser({name: user.displayName, photo: user.photoURL});
                 
             }else{

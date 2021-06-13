@@ -18,17 +18,17 @@ const Top = () => {
 
     const login = () => {
         const provider = new firebase.auth.GoogleAuthProvider();
+        const loginIdReg1 = new RegExp(process.env.REACT_APP_APP_ID);
+        const loginIdReg2 = new RegExp(process.env.REACT_APP_APP_ID2);
         
         firebase.auth().signInWithPopup(provider)
             .then((result) => {
-                if (result.user.email.match(/@oic-ok/) || result.user.email.match(/test\.chisatoshiraga@/)) {
+                if (result.user.email.match(loginIdReg1) || result.user.email.match(loginIdReg2)) {
                     history.push('/Main');
                     window.scrollTo(0, 0);
                     
 
                 } else {
-                    // alert('OICアカウントでサインインしてください')
-                    // location.href = '../html/error.html';
                     firebase.auth().signOut();
                     history.push('/ErrorPage');
                     window.scrollTo(0, 0);
