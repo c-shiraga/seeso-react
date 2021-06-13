@@ -20,10 +20,12 @@ header h1{
     margin-left: 5px;
     width: 50px;
     margin-right: 10px;
+    outline: none;
 }
 .search-bar:focus{
     width: 160px;
     transition: .6s;
+    outline: none;
 }
 
 .search-bar-area{
