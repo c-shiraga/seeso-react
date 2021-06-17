@@ -364,6 +364,7 @@ h3.step-title-center{
         position: fixed;
         bottom: 0;
         width: 100%;
+        border-top: #bbb 1px solid;
     }
     .smf-nav-list{
         display: flex;
