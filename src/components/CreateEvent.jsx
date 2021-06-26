@@ -49,6 +49,8 @@ const CreateEvent = () => {
                 document.form1.reset();
                 setOpen(false);
                 alert("イベントを作成しました。")
+                // window.location.reload();
+                
             }else{
                 alert("URLには、LINEのオープンチャットのリンクを貼ってください。")
                 return;

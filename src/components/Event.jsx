@@ -3,6 +3,7 @@ import {UserProfile} from './Main';
 import {KeyWord} from './Main';
 import firebase from '../firebase/firebase';
 import Linkify from 'linkifyjs/react';
+import UpdateEvent from './UpdateEvent';
 
 const Event = () => {
     const [currentUser , setCurrentUser] = useContext(UserProfile);
@@ -34,6 +35,7 @@ const Event = () => {
                 const db = firebase.firestore();
                 await db.collection("events").doc(document).delete()
                 alert("イベントを削除しました。")
+                // window.location.reload();
             }  
             
         }
@@ -68,6 +70,15 @@ const Event = () => {
                                     : 
                                     "no-event-delete-button"}
                     >
+                        
+                        <UpdateEvent
+                            id={event.eventsDataId}
+                            date={event.date}
+                            title={event.title}
+                            lineUrl={event.lineUrl}
+                            content={event.content}
+                            venue={event.venue}
+                        />
                         <button onClick={() => eventDelete(event.eventsDataId, event.name)}>
                             削除
                         </button>

@@ -109,6 +109,11 @@ p.author-name{
     color: #aaa;
     text-align: right;
     margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+.event-delete-button button{
+    margin-left: 30px;
 }
 
 .no-event-delete-button{
