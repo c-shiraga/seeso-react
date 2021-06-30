@@ -22,11 +22,10 @@ const Community = () => {
             msg  : message,
             name : currentUser.name,
             photo: currentUser.photo,
+            email: currentUser.email,
             date : new Date().getTime()
         });
-
         setMessage('');
-
     }
 
     return (
