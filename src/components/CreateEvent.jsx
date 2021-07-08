@@ -35,6 +35,7 @@ const CreateEvent = () => {
                 await db.collection('events').add({
                     name: currentUser.name,
                     photo: currentUser.photo,
+                    email: currentUser.email,
                     date: date,
                     title: title,
                     venue: venue,
@@ -72,7 +73,16 @@ const CreateEvent = () => {
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
-                <DialogTitle id="alert-dialog-title"><i class="fas fa-edit fa-lg fa-edit-color"></i>{" Event creation form"}</DialogTitle>
+                <DialogTitle id="alert-dialog-title">
+                    <div className="dialogTitleArea">
+                        <div>
+                            <i class="fas fa-edit fa-lg fa-edit-color"></i>
+                        </div>
+                        <span>
+                            Event creation form
+                        </span>
+                    </div>
+                </DialogTitle>
                 <DialogContent>
                 <DialogContentText id="alert-dialog-description">
                     <div className="event-form">

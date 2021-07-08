@@ -18,7 +18,6 @@ const Main = () => {
         photo: "", 
         email: "",
         gender: "",
-        age: "",
         department: "",
         schoolYear: "",
         message: ""
@@ -45,10 +44,9 @@ const Main = () => {
                     photo: user.photoURL,
                     email: user.email,
                     gender: '未設定',
-                    age: '未設定',
                     department: '未設定',
                     schoolYear: '未設定',
-                    message: '未設定'
+                    message: ''
                 }
                 
                 if(profile.empty){
@@ -61,7 +59,6 @@ const Main = () => {
                             photo: user.photoURL, 
                             email: user.email,
                             gender: doc.data().gender,
-                            age: doc.data().age,
                             department: doc.data().department,
                             schoolYear: doc.data().schoolYear,
                             message: doc.data().message

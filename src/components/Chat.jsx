@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import {UserProfile} from './Main';
 import firebase from '../firebase/firebase';
 import Linkify from 'linkifyjs/react';
+import OtherUserProfileData from './OtherUserProfileData';
 
 
 
@@ -78,7 +79,11 @@ const Chat = () => {
                 
                 :
                 <div className="message">
-                    <img src={message.photo} alt="" className="chat-photo" />
+                    <OtherUserProfileData 
+                        name={message.name}
+                        photo={message.photo}
+                        email={message.email}
+                    />
                     <div>
                         <span className="chat-name">{message.name}</span><br/>
                         <div className="message-box">

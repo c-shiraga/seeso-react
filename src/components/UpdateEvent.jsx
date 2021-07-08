@@ -47,6 +47,7 @@ const UpdateEvent = (props) => {
           .update({
             name: currentUser.name,
             photo: currentUser.photo,
+            email: currentUser.email,
             date: date,
             title: title,
             venue: venue,
@@ -76,8 +77,14 @@ const UpdateEvent = (props) => {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          <i class="fas fa-edit fa-lg fa-edit-color"></i>
-          {" Event creation form"}
+          <div className="dialogTitleArea">
+            <div>
+              <i class="fas fa-edit fa-lg fa-edit-color"></i>
+            </div>
+            <span>
+              Event update form
+            </span>
+          </div>
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">

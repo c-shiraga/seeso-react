@@ -35,7 +35,6 @@ const Header = () => {
             <header>
                 <h1 className="title-logo">SEESO</h1>
                 <button id="sign-out" onClick={signOut}>sign out</button>
-                {/* <img src={currentUser.photo} alt="" className="profilePhoto" /> */}
                 <UserProfileData />
                 <div className="search-nav-area">
                     <SearchBar />

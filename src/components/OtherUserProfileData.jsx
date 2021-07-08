@@ -9,18 +9,24 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import EditUserProfile from "./EditUserProfile";
 
-const UserProfileData = (props) => {
-  const [open, setOpen] = React.useState(false);
-  const [open2, setOpen2] = React.useState(false);
-
-  const [currentUser, setCurrentUser] = useContext(UserProfile);
-  const [gender, setGender] = useState('未設定');
-  const [department, setDepartment] = useState('未設定');
-  const [schoolYear, setSchoolYear] = useState('未設定');
+const OtherUserProfileData = (props) => {
+  const [open, setOpen] = useState(false);
+  const [gender, setGender] = useState('');
+  const [department, setDepartment] = useState('');
+  const [schoolYear, setSchoolYear] = useState('');
   const [message, setMessage] = useState('');
-  
 
-  const handleClickOpen = () => {
+  const db = firebase.firestore();
+
+  const handleClickOpen = async () => {
+    const usersRef = db.collection('users').where('email', '==', props.email);
+    const profile = await usersRef.get();
+    profile.forEach((doc) => {
+      setGender(doc.data().gender);
+      setDepartment(doc.data().department);
+      setSchoolYear(doc.data().schoolYear);
+      setMessage(doc.data().message);
+    })
     setOpen(true);
   };
 
@@ -28,20 +34,12 @@ const UserProfileData = (props) => {
     setOpen(false);
   };
 
-  const handleClickOpen2 = () => {
-    setGender(currentUser.gender);
-    setDepartment(currentUser.department);
-    setSchoolYear(currentUser.schoolYear);
-    setMessage(currentUser.message);
-    setOpen2(true);
-  };
-
   return (
     <div>
       <img 
-        src={currentUser.photo} 
+        src={props.photo} 
         alt="" 
-        className="userPhoto"
+        className="chat-photo"
         onClick={handleClickOpen}
       />
       <Dialog
@@ -64,44 +62,28 @@ const UserProfileData = (props) => {
           <DialogContentText id="alert-dialog-description">
             <div className="userProfileArea">
               <div className="profileImageArea">
-                <img src={currentUser.photo} alt="" className="profilePhoto" />
+                <img src={props.photo} alt="" className="profilePhoto" />
               </div>
-              <p className="profileName">{currentUser.name}</p>
+              <p className="profileName">{props.name}</p>
               <div className="basicUserProfileDataArea">
                 <div className="basicUserProfileData">
-                  <p>性別: {currentUser.gender}</p>
-                  <p>学科: {currentUser.department}</p>
-                  <p>学年: {currentUser.schoolYear}</p>
+                  <p>性別: {gender}</p>
+                  <p>学科: {department}</p>
+                  <p>学年: {schoolYear}</p>
                 </div>
               </div>
-              <p className="profileMessage">{currentUser.message}</p>
+              <p className="profileMessage">{message}</p>
             </div>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => {
-            handleClose();
-            handleClickOpen2();
-          }} color="primary" autoFocus>
-            編集
+          <Button onClick={handleClose} color="primary" autoFocus>
+            閉じる
           </Button>
         </DialogActions>
       </Dialog>
-      <EditUserProfile 
-        open2={open2}
-        setOpen2={setOpen2}
-        gender={gender}
-        setGender={setGender}
-        department={department}
-        setDepartment={setDepartment}
-        schoolYear={schoolYear}
-        setSchoolYear={setSchoolYear}
-        message={message}
-        setMessage={setMessage}
-      />
-      
     </div>
-  );
+  )
 }
 
-export default UserProfileData
+export default OtherUserProfileData

@@ -73,6 +73,7 @@ div.message{
     width: 30px;
     height: 30px;
     margin-right: 10px;
+    cursor: pointer;
 }
 .current-chat-photo{
     border-radius: 50%;

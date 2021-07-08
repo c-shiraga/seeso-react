@@ -4,6 +4,7 @@ import {KeyWord} from './Main';
 import firebase from '../firebase/firebase';
 import Linkify from 'linkifyjs/react';
 import UpdateEvent from './UpdateEvent';
+import OtherUserProfileData from './OtherUserProfileData';
 
 const Event = () => {
     const [currentUser , setCurrentUser] = useContext(UserProfile);
@@ -54,7 +55,20 @@ const Event = () => {
                     </div>
                     <h2 className="event">{event.title}</h2>
                     <div>
-                        <p className="author-name">作成者: {event.name}</p>
+                        <p className="author-name">
+                            <p className="event-name">
+                                作成者: 
+                            </p>
+                            <OtherUserProfileData 
+                                name={event.name}
+                                photo={event.photo}
+                                email={event.email}
+                            />
+                            <p className="event-name">
+                                {event.name}
+                            </p>
+                        </p>
+                        
                         <a href={event.lineUrl} target="_blank" rel="noopener nofollow" className="event">参加</a>
                     </div>
                     <details className="event">
@@ -101,7 +115,19 @@ const Event = () => {
                         <h2 className="event">{event.title}</h2>
                         {/* <h2 className="event">{searchWord}</h2> */}
                         <div>
-                            <p className="author-name">作成者: {event.name}</p>
+                            <p className="author-name">
+                                <p className="event-name">
+                                    作成者: 
+                                </p>
+                                <OtherUserProfileData 
+                                    name={event.name}
+                                    photo={event.photo}
+                                    email={event.email}
+                                />
+                                <p className="event-name">
+                                    {event.name}
+                                </p>
+                            </p>
                             <a href={event.lineUrl} target="_blank" rel="noopener nofollow" className="event">参加</a>
                         </div>
                         <details className="event">
@@ -117,6 +143,14 @@ const Event = () => {
                                         : 
                                         "no-event-delete-button"}
                         >
+                            <UpdateEvent
+                                id={event.eventsDataId}
+                                date={event.date}
+                                title={event.title}
+                                lineUrl={event.lineUrl}
+                                content={event.content}
+                                venue={event.venue}
+                            />
                             <button onClick={() => eventDelete(event.eventsDataId, event.name)}>
                                 削除
                             </button>
