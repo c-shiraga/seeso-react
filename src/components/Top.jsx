@@ -8,24 +8,33 @@ import chat from '../assets/img/chatImg.png';
 import line from '../assets/img/lineImg.png';
 import topChar2 from '../assets/img/charSmile.png';
 import Footer from './Footer';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { useState } from 'react';
 
+const Spinner = () => {
 
+    return (
+        <div>
+            <CircularProgress />
+        </div>
+    );
+}
 
-const Top = () => {
-    
-
+const LoginButton = (props) => {
     const history = useHistory();
+    
 
     const login = () => {
         const provider = new firebase.auth.GoogleAuthProvider();
         const loginIdReg1 = new RegExp(process.env.REACT_APP_APP_ID);
         const loginIdReg2 = new RegExp(process.env.REACT_APP_APP_ID2);
-        
+        props.setLoading(true);
         firebase.auth().signInWithPopup(provider)
             .then((result) => {
                 if (result.user.email.match(loginIdReg1) || result.user.email.match(loginIdReg2)) {
                     history.push('/Main');
                     window.scrollTo(0, 0);
+                    props.setLoading(false);
                     
 
                 } else {
@@ -36,9 +45,19 @@ const Top = () => {
             })
             .catch(function(error) {
                 alert('正常にサインインできませんでした。');
+                props.setLoading(false);
             });
     } 
 
+    return(
+        <button　onClick={login} className="loginButton">SEESOにログイン</button>
+    )
+}
+
+const Top = () => {
+
+    const [loading, setLoading] = useState(false);
+    
     return (
         <div>
             <div className="main">
@@ -48,7 +67,7 @@ const Top = () => {
                     <p className="sub-title">このWebサイトは<br/>
                     専門学校岡山情報ビジネス学院(OIC)の<br/>
                     学生専用のSNSです。</p>
-                    <button　onClick={login} className="loginButton">SEESOにログイン</button>
+                    {loading ? (<Spinner />) : (<LoginButton setLoading={setLoading} />) }
                 </div>
             </div>
             <div className="main2">
@@ -95,7 +114,7 @@ const Top = () => {
                         <h3 className="step-title-center">いつでも、どこでも、楽しめる</h3>
                         <p className="top-comment">操作はとても簡単。いますぐ、イベントを企画し、多くの人と交流しよう！</p>
                         <div>
-                            <button　onClick={login} className="loginButton">SEESOにログイン</button>
+                            <LoginButton />
                         </div>
                         <img src={topChar2} alt="" className="bottom-img"/>
                     </div>

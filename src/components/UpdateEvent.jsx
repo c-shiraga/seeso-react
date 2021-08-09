@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState} from "react";
 import { UserProfile } from "./Main";
 import firebase from "../firebase/firebase";
 import Button from "@material-ui/core/Button";
@@ -11,7 +11,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 const UpdateEvent = (props) => {
   const [open, setOpen] = React.useState(false);
 
-  const [currentUser, setCurrentUser] = useContext(UserProfile);
+  const [currentUser] = useContext(UserProfile);
   const [date, setDate] = useState("");
   const [title, setTitle] = useState("");
   const [lineUrl, setLineUrl] = useState("");
@@ -32,11 +32,11 @@ const UpdateEvent = (props) => {
   const sendEventData = async () => {
     const venue = document.form1.venue.value;
     if (
-      date != "" &&
-      title != "" &&
-      venue != "" &&
-      content != "" &&
-      lineUrl != ""
+      date !== "" &&
+      title !== "" &&
+      venue !== "" &&
+      content !== "" &&
+      lineUrl !== ""
     ) {
       if (/line\.me/.test(lineUrl)) {
         //テキスト内のURLにaタグをつける機能を実装予定。

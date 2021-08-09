@@ -1,5 +1,4 @@
-import React, {useEffect, useState, useContext} from 'react';
-import {UserProfile} from './Main';
+import React, {useEffect, useState} from 'react';
 import { Link } from 'react-scroll';
 import firebase from '../firebase/firebase';
 import { useHistory } from 'react-router-dom';
@@ -13,7 +12,6 @@ const Header = () => {
 
     const [scrollPosition, setScrollPosition] = useState(0);
     const [maxScrollPosition, setMaxScrollPosition] = useState(0);
-    const [currentUser , setCurrentUser] = useContext(UserProfile);
 
     const signOut = async () => {
         await firebase.auth().signOut();
@@ -28,7 +26,7 @@ const Header = () => {
         window.addEventListener('scroll', () => {
             setScrollPosition(window.pageYOffset);  
         })
-    })
+    },[scrollPosition])
     
     return (
         <div>

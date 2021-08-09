@@ -1,6 +1,5 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState} from "react";
 import { UserProfile } from "./Main";
-import firebase from "../firebase/firebase";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
@@ -13,7 +12,7 @@ const UserProfileData = (props) => {
   const [open, setOpen] = React.useState(false);
   const [open2, setOpen2] = React.useState(false);
 
-  const [currentUser, setCurrentUser] = useContext(UserProfile);
+  const [currentUser] = useContext(UserProfile);
   const [gender, setGender] = useState('未設定');
   const [department, setDepartment] = useState('未設定');
   const [schoolYear, setSchoolYear] = useState('未設定');

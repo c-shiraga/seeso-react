@@ -7,7 +7,7 @@ import OtherUserProfileData from './OtherUserProfileData';
 
 
 const Chat = () => {
-    const [currentUser , setCurrentUser] = useContext(UserProfile);
+    const [currentUser] = useContext(UserProfile);
 
     const [messages, setMessages] = useState([]);
 

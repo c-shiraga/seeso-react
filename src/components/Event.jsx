@@ -7,8 +7,8 @@ import UpdateEvent from './UpdateEvent';
 import OtherUserProfileData from './OtherUserProfileData';
 
 const Event = () => {
-    const [currentUser , setCurrentUser] = useContext(UserProfile);
-    const [searchWord, setSearchWord] = useContext(KeyWord);
+    const [currentUser] = useContext(UserProfile);
+    const [searchWord] = useContext(KeyWord);
 
     const [eventsData, setEventsData] = useState([]);
 
@@ -44,7 +44,7 @@ const Event = () => {
 
     return (
         <>
-            {searchWord == "" ?
+            {searchWord === "" ?
                 eventsData.map(event => 
                 <div className="event">
                     <div className="date">
@@ -69,12 +69,12 @@ const Event = () => {
                             </p>
                         </p>
                         
-                        <a href={event.lineUrl} target="_blank" rel="noopener nofollow" className="event">参加</a>
+                        <a href={event.lineUrl} target="_blank" rel="noreferrer" className="event">参加</a>
                     </div>
                     <details className="event">
                         <summary>イベント内容</summary>
                         <p className="event-content">
-                        <Linkify options={{target: '_blank', rel: 'noopener noreferrer', className: 'linkified'}}>
+                        <Linkify options={{target: '_blank', rel: 'noreferrer', className: 'linkified'}}>
                             {event.content.replace(/http/g, " http")}
                         </Linkify>
                         </p>
@@ -128,12 +128,12 @@ const Event = () => {
                                     {event.name}
                                 </p>
                             </p>
-                            <a href={event.lineUrl} target="_blank" rel="noopener nofollow" className="event">参加</a>
+                            <a href={event.lineUrl} target="_blank" rel="noreferrer" className="event">参加</a>
                         </div>
                         <details className="event">
                             <summary>イベント内容</summary>
                             <p className="event-content">
-                            <Linkify options={{target: '_blank', rel: 'noopener noreferrer', className: 'linkified'}}>
+                            <Linkify options={{target: '_blank', rel: 'noreferrer', className: 'linkified'}}>
                                 {event.content.replace(/http/g, " http")}
                             </Linkify>
                             </p>

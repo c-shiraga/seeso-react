@@ -7,7 +7,7 @@ import Chat from './Chat';
 
 const Community = () => {
 
-    const [currentUser , setCurrentUser] = useContext(UserProfile);
+    const [currentUser] = useContext(UserProfile);
 
     const [message, setMessage] = useState("");
 

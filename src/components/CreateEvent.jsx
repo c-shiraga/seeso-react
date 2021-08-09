@@ -11,7 +11,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 const CreateEvent = () => {
     const [open, setOpen] = React.useState(false);
 
-    const [currentUser , setCurrentUser] = useContext(UserProfile);
+    const [currentUser] = useContext(UserProfile);
     const [date, setDate] = useState("");
     const [title, setTitle] = useState("");
     const [lineUrl, setLineUrl] = useState("");
@@ -28,7 +28,7 @@ const CreateEvent = () => {
 
     const sendEventData = async () => {
         const venue = document.form1.venue.value;
-        if(date != "" && title != "" && venue!="" && content!="" && lineUrl!=""){
+        if(date !== "" && title !== "" && venue !== "" && content !== "" && lineUrl !== ""){
             if(/line\.me/.test(lineUrl)){
                 //テキスト内のURLにaタグをつける機能を実装予定。
                 const db = firebase.firestore();

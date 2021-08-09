@@ -70,7 +70,7 @@ const Main = () => {
                 history.push('/ErrorPage');
             }
         });
-    },[])
+    },[history])
 
     return (
         <div>
