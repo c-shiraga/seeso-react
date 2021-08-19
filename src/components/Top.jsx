@@ -36,7 +36,6 @@ const LoginButton = (props) => {
                     window.scrollTo(0, 0);
                     props.setLoading(false);
                     
-
                 } else {
                     firebase.auth().signOut();
                     history.push('/ErrorPage');
