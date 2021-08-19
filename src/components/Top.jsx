@@ -47,7 +47,6 @@ const LoginButton = (props) => {
                 props.setLoading(false);
             });
     } 
-
     return(
         <button　onClick={login} className="loginButton">SEESOにログイン</button>
     )
