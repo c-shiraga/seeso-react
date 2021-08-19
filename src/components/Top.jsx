@@ -14,7 +14,7 @@ import { useState } from 'react';
 const Spinner = () => {
 
     return (
-        <div>
+        <div className="loading">
             <CircularProgress />
         </div>
     );
@@ -114,7 +114,7 @@ const Top = () => {
                         <h3 className="step-title-center">いつでも、どこでも、楽しめる</h3>
                         <p className="top-comment">操作はとても簡単。いますぐ、イベントを企画し、多くの人と交流しよう！</p>
                         <div>
-                            <LoginButton />
+                        {loading ? (<Spinner />) : (<LoginButton setLoading={setLoading} />) }
                         </div>
                         <img src={topChar2} alt="" className="bottom-img"/>
                     </div>

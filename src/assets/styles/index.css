@@ -132,7 +132,9 @@ div.index{
     background-color: #039be5;
     transition: .6s;
 }
-
+.loading{
+    margin-bottom: 30px;
+}
 .main2{
     background-color: white;
     padding-bottom: 50px;
