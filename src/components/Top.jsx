@@ -52,7 +52,6 @@ const LoginButton = (props) => {
         <button　onClick={login} className="loginButton">SEESOにログイン</button>
     )
 }
-
 const Top = () => {
 
     const [loading, setLoading] = useState(false);
